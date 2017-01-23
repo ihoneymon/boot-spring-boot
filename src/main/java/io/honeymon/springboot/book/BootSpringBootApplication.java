@@ -1,4 +1,4 @@
-package io.honeymon.springboot.boot;
+package io.honeymon.springboot.book;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
