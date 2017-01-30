@@ -29,6 +29,8 @@ dependencies {
 	compile('org.projectlombok:lombok')
 	
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-jpa')
+	compile('org.h2database:h2')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
