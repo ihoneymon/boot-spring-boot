@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.1.RELEASE'
+		springBootVersion = '1.5.3.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -20,6 +20,8 @@ jar {
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+
 
 repositories {
 	mavenCentral()
