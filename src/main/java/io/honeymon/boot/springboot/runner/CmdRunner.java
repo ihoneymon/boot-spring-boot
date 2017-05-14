@@ -8,10 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 public class CmdRunner implements CommandLineRunner {
-
     @Override
     public void run(String... args) throws Exception {
         log.debug("Run CmdRunner.");
     }
-
 }
