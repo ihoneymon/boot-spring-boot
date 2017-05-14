@@ -1,0 +1,3 @@
+logging:
+  level:
+    io.honeymon.boot.springboot: debug
