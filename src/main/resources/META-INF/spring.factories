@@ -1,0 +1,5 @@
+#Listener
+org.springframework.context.ApplicationListener=\
+io.honeymon.springboot.boot.listner.ApplicationStartingEventListener,\
+io.honeymon.springboot.boot.listner.ApplicationReadyEventListener
+
