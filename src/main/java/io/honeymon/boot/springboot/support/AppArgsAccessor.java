@@ -1,4 +1,4 @@
-package io.honeymon.springboot.boot.support;
+package io.honeymon.boot.springboot.support;
 
 import java.util.List;
 

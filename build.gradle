@@ -21,6 +21,11 @@ jar {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+// dependencies::start[]
+
+//exclude common-logging
+//[configurations.runtime, configurations.default]*.exclude(module: 'commons-logging')
+
 repositories {
 	mavenCentral()
 }
@@ -32,3 +37,4 @@ dependencies {
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+// dependencies::end[]
