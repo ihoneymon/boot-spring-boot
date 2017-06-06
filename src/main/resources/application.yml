@@ -1,10 +1,17 @@
 # default: 공통Common 적용
 logging:
   level:
-    io.honeymon.springboot.boot: DEBUG
+    io.honeymon.boot.springboot: DEBUG
 server:
   port: 9000
-
+# ExampleProperties
+example:
+    remote-address: 192.168.1.1
+    security:
+        username: admin
+        roles:
+          - USER
+          - ADMIN
 ---
 # test profile 사용시 적용
 spring:
