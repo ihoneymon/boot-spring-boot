@@ -13,9 +13,26 @@ example:
           - USER
           - ADMIN
 ---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:h2:~/.boot-spring-boot;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update  
+---
 # test profile 사용시 적용
 spring:
   profiles: test
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop 
 server:
   port: ${random.int[8000,9000}
 
@@ -23,12 +40,26 @@ server:
 # 개발서버 적용
 spring:
   profiles: dev
+  datasource:
+    url: jdbc:mariadb://<<url>>:3306/dev
+    username: honeymon
+    password: devhoneymon
+  jpa:
+    hibernate:
+      ddl-auto: validate
 server:
   port: 9000
   
 ---
 # 운영서버 적용
 spring:
-  profiles: prod 
+  profiles: prd
+  datasource:
+    url: jdbc:mariadb://<<url>>:3306/prd
+    username: honeymon
+    password: prdhoneymon
+  jpa:
+    hibernate:
+      ddl-auto: validate 
 server:
   port: 5000  # AWS Elastic Beanstalk 에서는 5000번을 사용해야한다. 단 SERVER_PORT 로 정의해야 한다. 

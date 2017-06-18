@@ -10,6 +10,5 @@ public class BootSpringBootApplication {
 		SpringApplication app = new SpringApplication(BootSpringBootApplication.class);
 		app.addListeners(new ApplicationPidFileWriter());
 		app.run(args);
-	}
-	
+	}	
 }
