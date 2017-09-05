@@ -18,6 +18,9 @@ jar {
 	baseName = 'boot-spring-boot'
 	version = '0.0.1-SNAPSHOT'
 }
+
+// 소스 인코딩 지정방법 1
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -36,9 +39,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
     
     compile('com.h2database:h2')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-// dependencies::end[]
+// dependencies::end[]7
