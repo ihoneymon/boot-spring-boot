@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.4.RELEASE'
+		springBootVersion = '1.5.8.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -12,12 +12,17 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
 	baseName = 'boot-spring-boot'
 	version = '0.0.1-SNAPSHOT'
 }
+
+project.version = "${jar.version}"
+project.group = "io.honeymon.boot"
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -36,9 +41,18 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-security')
     
     compile('com.h2database:h2')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 // dependencies::end[]
+
+springBoot {
+	buildInfo {
+		additionalProperties = [
+			'written-by': 'honeymon'
+		]
+	}
+}
