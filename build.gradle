@@ -1,33 +1,22 @@
-buildscript {
-	ext {
-		springBootVersion = '1.5.8.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+plugins {
+	id 'java'
+	id 'eclipse'
+	id 'idea'
+	id 'org.springframework.boot' version '1.5.8.RELEASE'
+	id "com.gorylenko.gradle-git-properties" version "1.4.17"
 }
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
 
 jar {
 	baseName = 'boot-spring-boot'
 	version = '0.0.1-SNAPSHOT'
 }
 
-<<<<<<< HEAD
 project.version = "${jar.version}"
 project.group = "io.honeymon.boot"
 
-=======
 // 소스 인코딩 지정방법 1
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
->>>>>>> ceb1d17ba2cf9661095d269f9f0801cb6b366e27
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -46,17 +35,13 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-<<<<<<< HEAD
     compile('org.springframework.boot:spring-boot-starter-security')
-=======
     compile('org.springframework.boot:spring-boot-starter-actuator')
->>>>>>> ceb1d17ba2cf9661095d269f9f0801cb6b366e27
     
     compile('com.h2database:h2')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
-<<<<<<< HEAD
 // dependencies::end[]
 
 springBoot {
@@ -66,6 +51,3 @@ springBoot {
 		]
 	}
 }
-=======
-// dependencies::end[]7
->>>>>>> ceb1d17ba2cf9661095d269f9f0801cb6b366e27
