@@ -20,9 +20,14 @@ jar {
 	version = '0.0.1-SNAPSHOT'
 }
 
+<<<<<<< HEAD
 project.version = "${jar.version}"
 project.group = "io.honeymon.boot"
 
+=======
+// 소스 인코딩 지정방법 1
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+>>>>>>> ceb1d17ba2cf9661095d269f9f0801cb6b366e27
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -41,12 +46,17 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+<<<<<<< HEAD
     compile('org.springframework.boot:spring-boot-starter-security')
+=======
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+>>>>>>> ceb1d17ba2cf9661095d269f9f0801cb6b366e27
     
     compile('com.h2database:h2')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+<<<<<<< HEAD
 // dependencies::end[]
 
 springBoot {
@@ -56,3 +66,6 @@ springBoot {
 		]
 	}
 }
+=======
+// dependencies::end[]7
+>>>>>>> ceb1d17ba2cf9661095d269f9f0801cb6b366e27
