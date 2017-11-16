@@ -11,12 +11,12 @@ server:
   port: 9000
 # ExampleProperties
 example:
-    remote-address: 192.168.1.1
-    security:
-        username: admin
-        roles:
-          - USER
-          - ADMIN
+  remote-address: 192.168.1.1
+  security:
+    username: admin
+    roles:
+      - USER
+      - ADMIN
 ---
 spring:
   profiles: local
