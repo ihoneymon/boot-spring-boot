@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import io.honeymon.boot.springboot.api.ExampleController;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@RestControllerAdvice(basePackageClasses = ExampleController.class)
+//@RestControllerAdvice(basePackageClasses = HelloController.class)
+@RestControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
     ResponseEntity<?> handleControllerException(HttpServletRequest request, Throwable ex) {

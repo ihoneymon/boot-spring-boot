@@ -11,14 +11,12 @@ jar {
 	version = '1.0.0.RELEASE'
 }
 
-project.version = "${jar.version}"
-project.group = "io.honeymon.boot"
+group = "io.honeymon.boot"
+version = "${jar.version}"
+sourceCompatibility = 1.8
 
 // 소스 인코딩 지정방법 1
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 // dependencies::start[]
 
