@@ -1,18 +1,40 @@
-plugins {
-	id 'java'
-	id 'eclipse'
-	id 'idea'
-	id 'org.springframework.boot' version '1.5.8.RELEASE'
-	id "com.gorylenko.gradle-git-properties" version "1.4.17"
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+		gradleGitPropertiesVersion = '1.4.17'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url "https://plugins.gradle.org/m2/" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:${gradleGitPropertiesVersion}")
+	}
 }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.gorylenko.gradle-git-properties'
+
 
 jar {
 	baseName = 'boot-spring-boot'
 	version = '1.0.0.RELEASE'
+	manifest {
+        attributes("Implementation-Title": "${jar.baseName}",
+                   "Implementation-Version": "${jar.version}")
+    }
 }
 
 group = "io.honeymon.boot"
 version = "${jar.version}"
+
 sourceCompatibility = 1.8
 
 // 소스 인코딩 지정방법 1

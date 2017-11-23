@@ -6,7 +6,7 @@
 	<groupId>io.honeymon.springboot.boot</groupId>
 	<artifactId>boot-spring-boot</artifactId>
 	<version>1.0.0.RELEASE</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>boot-spring-boot</name>
 	<description>Boot Spring Boot Project</description>
