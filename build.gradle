@@ -7,7 +7,7 @@ buildscript {
 		mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
-		maven { url "https://plugins.gradle.org/m2/" }
+		maven { url "https://plugins.gradle.org/m2" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -48,6 +48,10 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
+
+configurations {
+	compile.exclude module: 'tomcat-jdbc'
+}
  
 dependencies {
 	compile('org.projectlombok:lombok')
@@ -57,6 +61,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('com.zaxxer:HikariCP')
+    compile('org.springframework.boot:spring-boot-starter-tomcat')
     
     compile('com.h2database:h2')
 	
@@ -66,9 +72,11 @@ dependencies {
 
 springBoot {
 	buildInfo {
-		additionalProperties = [
-			'written-by': 'honeymon'
-		]
+		properties {
+			additionalProperties = [
+				'written-by': 'honeymon'
+			]
+		}
 	}
 }
 
