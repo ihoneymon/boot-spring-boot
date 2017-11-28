@@ -16,7 +16,7 @@ example:
     username: admin
     roles:
       - USER
-      - ADMIN
+      - ADMI
 ---
 spring:
   profiles: local
