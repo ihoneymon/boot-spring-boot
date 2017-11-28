@@ -1,34 +1,91 @@
 buildscript {
 	ext {
-		springBootVersion = '1.4.0.RELEASE'
+		springBootVersion = '1.5.8.RELEASE'
+		gradleGitPropertiesVersion = '1.4.17'
 	}
 	repositories {
 		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url "https://plugins.gradle.org/m2" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:${gradleGitPropertiesVersion}")
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.gorylenko.gradle-git-properties'
+
 
 jar {
 	baseName = 'boot-spring-boot'
-	version = '0.0.1-SNAPSHOT'
+	version = '1.0.0.RELEASE'
+	manifest {
+        attributes("Implementation-Title": "${jar.baseName}",
+                   "Implementation-Version": "${jar.version}")
+    }
 }
+
+group = "io.honeymon.boot"
+version = "${jar.version}"
+
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
+
+// 소스 인코딩 지정방법 1
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+// dependencies::start[]
+
+//exclude common-logging
+//[configurations.runtime, configurations.default]*.exclude(module: 'commons-logging')
 
 repositories {
 	mavenCentral()
+}
+
+configurations {
+	compile.exclude module: 'tomcat-jdbc'
 }
  
 dependencies {
 	compile('org.projectlombok:lombok')
 	
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-configuration-processor')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.thymeleaf:thymeleaf')
+    compile('org.thymeleaf:thymeleaf-spring5')
+    
+    compile('com.zaxxer:HikariCP')
+    compile('org.springframework.boot:spring-boot-starter-tomcat')
+    
+    compile('com.h2database:h2')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+// dependencies::end[]
+
+springBoot {
+	buildInfo {
+		properties {
+			additionalProperties = [
+				'written-by': 'honeymon'
+			]
+		}
+	}
+}
+
+gitProperties {
+    dateFormat = "yyyy-MM-dd'T'HH:mmZ"
+    dateFormatTimeZone = "GMT"
 }

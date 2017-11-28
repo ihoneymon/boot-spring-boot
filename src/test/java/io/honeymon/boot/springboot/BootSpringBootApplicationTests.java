@@ -1,4 +1,4 @@
-package io.honeymon.springboot.boot;
+package io.honeymon.boot.springboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
