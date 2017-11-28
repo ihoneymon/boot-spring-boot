@@ -1,5 +1,7 @@
-
 # Created by https://www.gitignore.io/api/java,gradle,maven,intellij,eclipse
+
+### Application ##
+*.pid
 
 ### Maven ###
 target/
