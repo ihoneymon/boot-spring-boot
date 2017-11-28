@@ -17,6 +17,9 @@ example:
     roles:
       - USER
       - ADMI
+spring:
+  thymeleaf:
+    cache: false
 ---
 spring:
   profiles: local
