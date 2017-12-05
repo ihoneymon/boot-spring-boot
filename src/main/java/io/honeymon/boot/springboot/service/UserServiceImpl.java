@@ -1,5 +1,7 @@
 package io.honeymon.boot.springboot.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,7 @@ public class UserServiceImpl implements UserService {
     UserRepository repository;
     
     @Override
-    public User findOne(Long id) {
-        return repository.findOne(id);
+    public Optional<User> findById(Long id) {
+        return repository.findById(id);
     }
-
 }

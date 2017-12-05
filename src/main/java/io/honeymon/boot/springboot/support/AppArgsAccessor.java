@@ -16,8 +16,10 @@ public class AppArgsAccessor {
     public AppArgsAccessor(ApplicationArguments args) {
         boolean debug = args.containsOption("debug");
         log.debug("debug={}", debug);
+        
         List<String> files = args.getNonOptionArgs();
         log.debug("files={}", files);
+        
         // if run with "--debug logfile.txt" debug=true, files=["logfile.txt"]
     }
 }
