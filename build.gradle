@@ -1,3 +1,9 @@
+description ="""
+Project name: ${project.name}
+
+'부트 스프링 부트' 도서를 보며 참고할 수 있는 예제 프로젝트입니다.
+"""
+
 buildscript {
 	ext {
 		springBootVersion = '2.0.0.M7'
@@ -43,7 +49,7 @@ sourceCompatibility = 1.8
 // dependencies::start[]
 
 //exclude common-logging
-//[configurations.runtime, configurations.default]*.exclude(module: 'commons-logging')
+[configurations.runtime, configurations.default]*.exclude(module: 'commons-logging')
 
 repositories {
 	mavenCentral()
@@ -61,6 +67,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-redis')
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     

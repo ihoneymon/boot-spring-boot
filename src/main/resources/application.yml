@@ -29,7 +29,7 @@ spring:
     password:
   jpa:
     hibernate:
-      ddl-auto: update  
+      ddl-auto: update
 ---
 # test profile 사용시 적용
 spring:

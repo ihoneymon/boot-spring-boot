@@ -21,7 +21,7 @@ public class ViewExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ModelAndView defaultExceptionHandler(HttpServletRequest req, Exception e) {
         log.error("Occurred Exception: {}", e.getMessage());
-        ModelAndView mav = new ModelAndView("error");
+        ModelAndView mav = new ModelAndView("view-error");
         mav.addObject("e", e);
         mav.addObject("url", req.getRequestURL());
         return mav;
