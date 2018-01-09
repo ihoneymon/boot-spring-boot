@@ -42,7 +42,7 @@ public class ExampleProperties {
 		private List<String> roles = new ArrayList<>(Collections.singleton("USER"));
 
 		@Builder
-		public Security(@NotEmpty String username, String password, List<String> roles) {
+		public Security(String username, String password, List<String> roles) {
 			this.username = username;
 			this.password = password;
 			this.roles = roles;
