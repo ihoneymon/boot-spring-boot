@@ -12,5 +12,4 @@ public class BootSpringBootApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }

@@ -3,6 +3,7 @@ package io.honeymon.boot.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.system.ApplicationPidFileWriter;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * 스프링 부트 애플리케이션이 시작되는 곳!
@@ -11,6 +12,7 @@ import org.springframework.boot.system.ApplicationPidFileWriter;
  * @author honeymon
  *
  */
+@ServletComponentScan
 @SpringBootApplication
 public class BootSpringBootApplication {
 	public static void main(String[] args) {

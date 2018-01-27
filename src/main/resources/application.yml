@@ -1,9 +1,9 @@
 # default: 공통Common 적용
 info:
   app:
-    encoding: ${file.encoding}
-    java.source: ${java.version}
-    java.target: ${java.version}
+    encoding: \${file.encoding}
+    java.source: \${java.version}
+    java.target: \${java.version}
 logging:
   level:
     io.honeymon.boot.springboot: DEBUG
@@ -42,7 +42,7 @@ spring:
     hibernate:
       ddl-auto: create-drop 
 server:
-  port: ${random.int[8000,9000}
+  port: \${random.int[8000,9000]}
 
 ---
 # 개발서버 적용
