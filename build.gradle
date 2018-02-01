@@ -6,7 +6,7 @@ Project name: ${project.name}
 
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.M7'
+		springBootVersion = '2.0.0.RC1'
 		gradleGitPropertiesVersion = '1.4.17'
 	}
 	repositories {
