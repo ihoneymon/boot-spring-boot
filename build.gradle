@@ -28,13 +28,18 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.gorylenko.gradle-git-properties'
 
+version = '1.0.0.RELEASE'
+
 jar {
 	baseName = "${project.name}"
-	version = '1.0.0.RELEASE'
+	version = "${project.version}"
+}
+
+bootJar {
 	manifest {
-        attributes("Implementation-Title": "${jar.baseName}",
-                   "Implementation-Version": "${jar.version}")
-    }
+		attributes("Implementation-Title": "${project.name}",
+				"Implementation-Version": "${project.version}")
+	}
 }
 
 group = "io.honeymon.boot"
@@ -58,6 +63,12 @@ repositories {
 
 configurations {
 	compile.exclude module: 'tomcat-jdbc'
+}
+
+dependencyManagement {
+//    imports {
+//        mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.0.1.RELEASE'
+//    }
 }
  
 dependencies {
