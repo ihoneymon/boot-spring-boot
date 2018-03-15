@@ -16,10 +16,25 @@ example:
     username: admin
     roles:
       - USER
-      - ADMI
+      - ADMIN
 spring:
   thymeleaf:
     cache: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    beans:
+      cache:
+        time-to-live: 10s
+    shutdown:
+      enabled: true
+    health:
+      show-details: never
+    httptrace:
+      enabled: true
 ---
 spring:
   profiles: local
@@ -68,6 +83,9 @@ spring:
     password: prdhoneymon
   jpa:
     hibernate:
-      ddl-auto: validate 
+      ddl-auto: validate
 server:
-  port: 5000  # AWS Elastic Beanstalk 에서는 5000번을 사용해야한다. 단 SERVER_PORT 로 정의해야 한다. 
+  port: 5000  # AWS Elastic Beanstalk 에서는 5000번을 사용해야한다. 단 SERVER_PORT 로 정의해야 한다.
+logging:
+  level:
+    io.honeymon.boot.springboot: INFO

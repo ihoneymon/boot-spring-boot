@@ -105,6 +105,11 @@ springBoot {
 	}
 }
 
+// 빌드스크립트처럼 실행가능한 바이너리 jar 만들기
+bootJar {
+	launchScript()
+}
+
 gitProperties {
     dateFormat = "yyyy-MM-dd'T'HH:mmZ"
     dateFormatTimeZone = "GMT"
