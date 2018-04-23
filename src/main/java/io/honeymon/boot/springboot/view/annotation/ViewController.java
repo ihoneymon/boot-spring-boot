@@ -6,6 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Controller;
 
 @Target(ElementType.TYPE)
@@ -20,6 +21,7 @@ public @interface ViewController {
      * @return the suggested component name, if any
      * @since 4.0.1
      */
+    @AliasFor(annotation = Controller.class)
     String value() default "";
 
 }
