@@ -94,7 +94,7 @@ dependencies {
 
 springBoot {
 	/**
-	 * Spring Boot 리패키징 시 build-info.
+	 * Spring Boot 리패키징 시 build-info에 추가될 속성
 	 */
 	buildInfo {
 		properties {
@@ -105,7 +105,7 @@ springBoot {
 	}
 }
 
-// 빌드스크립트처럼 실행가능한 바이너리 jar 만들기
+// 쉘스크립트처럼 실행가능한 바이너리 jar 만들기
 bootJar {
 	launchScript()
 }
