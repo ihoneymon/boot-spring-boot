@@ -9,6 +9,6 @@ public class ErrorViewController {
 
 	@GetMapping("/occurred-error")
 	public String occurError() {
-		throw new RuntimeException("불어라 바람아!!");
+		throw new RuntimeException("에러야 일어나라!!!");
 	}
 }
