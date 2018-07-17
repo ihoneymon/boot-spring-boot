@@ -6,13 +6,11 @@ Project name: ${project.name}
 
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.RC2'
+		springBootVersion = '2.0.3.RELEASE'
 		gradleGitPropertiesVersion = '1.4.17'
 	}
 	repositories {
 		mavenCentral()
-		maven { url "https://repo.spring.io/snapshot" }
-		maven { url "https://repo.spring.io/milestone" }
 		maven { url "https://plugins.gradle.org/m2" }
 	}
 	dependencies {
@@ -61,7 +59,7 @@ configurations {
 }
  
 dependencies {
-	compile('org.projectlombok:lombok')
+	compile('org.projectlombok:lombok:1.18.0')
 	
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
@@ -72,7 +70,6 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     //compile('org.thymeleaf:thymeleaf-spring5')
     
-    compile('com.zaxxer:HikariCP')
     compile('org.springframework.boot:spring-boot-starter-tomcat')
     
     compile('com.h2database:h2')
