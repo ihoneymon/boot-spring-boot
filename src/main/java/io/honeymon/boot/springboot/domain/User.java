@@ -7,18 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User implements Serializable {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue
     private Long id;
 
+    @EqualsAndHashCode.Include
     @Column(nullable = false, unique = true)
     private String email;
 
