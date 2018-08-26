@@ -6,7 +6,7 @@ Project name: ${project.name}
 
 buildscript {
 	ext {
-		springBootVersion = '2.0.3.RELEASE'
+		springBootVersion = '2.0.4.RELEASE'
 		gradleGitPropertiesVersion = '1.4.17'
 	}
 	repositories {
@@ -64,13 +64,17 @@ configurations {
 }
 
 dependencyManagement {
+//	dependencies {
+//		compile('org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE')
+//	}
+//
 //    imports {
 //        mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.0.1.RELEASE'
 //    }
 }
  
 dependencies {
-	compile('org.projectlombok:lombok:1.18.0')
+	compile('org.projectlombok:lombok:1.18.2')
 	
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
@@ -87,6 +91,7 @@ dependencies {
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')	
 }
+
 // dependencies::end[]
 
 springBoot {
