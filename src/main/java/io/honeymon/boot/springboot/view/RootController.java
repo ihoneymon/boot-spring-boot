@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import io.honeymon.boot.springboot.view.annotation.ViewController;
 
 @ViewController
-public class GreetingController {
+public class RootController {
 
-    @GetMapping("/greeting")
+    @GetMapping("/root")
     public String root() {
-        return "Hello, world!";
+        return "root";
     }
 }
