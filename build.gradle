@@ -6,7 +6,7 @@ Project name: ${project.name}
 
 buildscript {
     ext {
-        springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '2.0.6.RELEASE'
         gradleGitPropertiesVersion = '1.4.17'
     }
     repositories {
@@ -26,7 +26,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.gorylenko.gradle-git-properties'
 
-version = '1.0.0.RELEASE'
+version = '1.1.0.RELEASE'
 
 jar {
     baseName = "${project.name}"
