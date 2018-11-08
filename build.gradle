@@ -63,6 +63,7 @@ configurations {
     compile.exclude module: 'tomcat-jdbc'
 }
 
+// 스프링 부트에서 사용하는 의존성 라이브러리 버전을 관리하는 목적으로 사용한다.
 dependencyManagement {
 //	dependencies {
 //		compile('org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE')
@@ -73,10 +74,8 @@ dependencyManagement {
 //    }
 }
 
-
+// 다음과 같이 선언하면 spring-boot-starter-dependencies 에서 정의한 버전을 덮어쓴다.
 ext['lombok.version'] = '1.18.2'
-
-
 
 dependencies {
 	compile('org.projectlombok:lombok')
