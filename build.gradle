@@ -73,9 +73,13 @@ dependencyManagement {
 //    }
 }
 
+
+ext['lombok.version'] = '1.18.2'
+
+
+
 dependencies {
-<<<<<<< HEAD
-	compile('org.projectlombok:lombok:1.18.2')
+	compile('org.projectlombok:lombok')
 	
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-configuration-processor')
