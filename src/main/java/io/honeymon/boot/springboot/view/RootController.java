@@ -7,7 +7,7 @@ import io.honeymon.boot.springboot.view.annotation.ViewController;
 @ViewController
 public class RootController {
 
-    @GetMapping("/")
+    @GetMapping("/root")
     public String root() {
         return "root";
     }

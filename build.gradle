@@ -6,7 +6,7 @@ Project name: ${project.name}
 
 buildscript {
     ext {
-        springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '2.0.6.RELEASE'
         gradleGitPropertiesVersion = '1.4.17'
     }
     repositories {
@@ -26,7 +26,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.gorylenko.gradle-git-properties'
 
-version = '1.0.0.RELEASE'
+version = '1.1.0.RELEASE'
 
 jar {
     baseName = "${project.name}"
@@ -64,16 +64,21 @@ configurations {
 }
 
 dependencyManagement {
+//	dependencies {
+//		compile('org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE')
+//	}
+//
 //    imports {
 //        mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.0.1.RELEASE'
 //    }
 }
 
 dependencies {
-    compile('org.projectlombok:lombok:1.18.0')
-
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-configuration-processor')
+<<<<<<< HEAD
+	compile('org.projectlombok:lombok:1.18.2')
+	
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-configuration-processor')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-actuator')
@@ -92,6 +97,7 @@ dependencies {
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
 // dependencies::end[]
 
 springBoot {
