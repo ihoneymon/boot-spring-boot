@@ -1,44 +1,28 @@
+/**
+ * Gradle binary plugin
+ * @see https://docs.gradle.org/current/userguide/plugins.html
+ */
+plugins {
+    id "org.springframework.boot" version "2.2.0.RELEASE"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    id "com.gorylenko.gradle-git-properties" version "2.2.0"
+    id "java"
+}
+
 description = """
 Project name: ${project.name}
 
-'부트 스프링 부트' 도서를 보며 참고할 수 있는 예제 프로젝트입니다.
+"부트 스프링 부트" 도서를 보며 참고할 수 있는 예제 프로젝트입니다.
 """
 
-buildscript {
-    ext {
-        springBootVersion = '2.0.6.RELEASE'
-        gradleGitPropertiesVersion = '1.4.17'
-    }
-    repositories {
-        mavenCentral()
-        maven { url "https://plugins.gradle.org/m2" }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:${gradleGitPropertiesVersion}")
-    }
-}
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'com.gorylenko.gradle-git-properties'
 
-version = '1.1.0.RELEASE'
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "io.spring.dependency-management"
 
-jar {
-    baseName = "${project.name}"
-    version = "${project.version}"
-}
-
-bootJar {
-    manifest {
-        attributes("Implementation-Title": "${project.name}",
-                "Implementation-Version": "${project.version}")
-    }
-}
+version = "1.2.0.RELEASE"
 
 group = "io.honeymon.boot"
 version = "${jar.version}"
@@ -46,12 +30,12 @@ version = "${jar.version}"
 sourceCompatibility = 1.8
 
 // 소스 인코딩 지정방법 1
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
 
 // dependencies::start[]
 
 //exclude common-logging
-[configurations.runtime, configurations.default]*.exclude(module: 'commons-logging')
+[configurations.runtime, configurations.default]*.exclude(module: "commons-logging")
 
 repositories {
     mavenCentral()
@@ -60,49 +44,60 @@ repositories {
 }
 
 configurations {
-    compile.exclude module: 'tomcat-jdbc'
+    compile.exclude module: "tomcat-jdbc"
 }
 
-// 스프링 부트에서 사용하는 의존성 라이브러리 버전을 관리하는 목적으로 사용한다.
+/**
+ * 스프링 부트에서 사용하는 의존성 라이브러리 버전을 관리하는 목적으로 사용한다.
+ *
+ * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#managing-dependencies-using-in-isolation
+ */
 dependencyManagement {
 //	dependencies {
-//		compile('org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE')
+//		compile("org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE")
 //	}
 //
 //    imports {
-//        mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.0.1.RELEASE'
+//        mavenBom "org.springframework.boot:spring-boot-starter-parent:2.0.1.RELEASE"
 //    }
 }
 
-// 다음과 같이 선언하면 spring-boot-starter-dependencies 에서 정의한 버전을 덮어쓴다.
-ext['lombok.version'] = '1.18.2'
+/**
+ * 다음과 같이 선언하면 spring-boot-starter-dependencies 에서 정의한 버전을 덮어쓴다.
+ *
+ * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#managing-dependencies-customizing
+ */
+ext["lombok.version"] = "1.18.10"
 
 dependencies {
-	compile('org.projectlombok:lombok')
-	
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-configuration-processor')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('org.springframework.boot:spring-boot-starter-security')
-    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 
-    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-    //compile('org.thymeleaf:thymeleaf-spring5')
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-configuration-processor")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
 
-    compile('org.springframework.boot:spring-boot-starter-tomcat')
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    //compile("org.thymeleaf:thymeleaf-spring5")
+
+    compile("org.springframework.boot:spring-boot-starter-tomcat")
 
     //Java9 이상부터는 jaxb 의존성을 추가해야함
     compile("javax.xml.bind:jaxb-api")
 
-    compile('com.h2database:h2')
+    compile("com.h2database:h2")
 
 
-
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 // dependencies::end[]
 
+/**
+ * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring-launch-script
+ */
 springBoot {
     /**
      * Spring Boot 리패키징 시 build-info에 추가될 속성
@@ -110,17 +105,37 @@ springBoot {
     buildInfo {
         properties {
             additionalProperties = [
-                    'written-by': 'honeymon'
+                    "written-by": "honeymon"
             ]
         }
     }
 }
 
-// 쉘스크립트처럼 실행가능한 바이너리 jar 만들기
+jar {
+    baseName = "${project.name}"
+    version = "${project.version}"
+}
+
+
 bootJar {
+    /**
+     * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring
+     */
+    manifest {
+        attributes("Implementation-Title": "${project.name}",
+                "Implementation-Version": "${project.version}")
+    }
+
+    /**
+     * 쉘스크립트처럼 실행가능한 바이너리 jar 만들기
+     * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring-launch-script
+     */
     launchScript()
 }
 
+/**
+ * @see https://github.com/n0mer/gradle-git-properties
+ */
 gitProperties {
     dateFormat = "yyyy-MM-dd'T'HH:mmZ"
     dateFormatTimeZone = "GMT"
