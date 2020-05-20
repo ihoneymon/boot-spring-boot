@@ -3,8 +3,8 @@
  * @see https://docs.gradle.org/current/userguide/plugins.html
  */
 plugins {
-    id "org.springframework.boot" version "2.2.0.RELEASE"
-    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    id "org.springframework.boot" version "2.3.0.RELEASE"
+    id "io.spring.dependency-management" version "1.0.9.RELEASE"
     id "com.gorylenko.gradle-git-properties" version "2.2.0"
     id "java"
 }
@@ -67,30 +67,34 @@ dependencyManagement {
  *
  * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#managing-dependencies-customizing
  */
-ext["lombok.version"] = "1.18.10"
+ext["h2.version"] = "1.4.199"
 
 dependencies {
-    compile("org.projectlombok:lombok")
+    implementation("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-configuration-processor")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation") // 2.3.0 spring-boot-starter-web 에서 제거됨
+    implementation("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     //compile("org.thymeleaf:thymeleaf-spring5")
 
-    compile("org.springframework.boot:spring-boot-starter-tomcat")
+    implementation("org.springframework.boot:spring-boot-starter-tomcat")
 
     //Java9 이상부터는 jaxb 의존성을 추가해야함
-    compile("javax.xml.bind:jaxb-api")
+    compileOnly("javax.xml.bind:jaxb-api")
 
-    compile("com.h2database:h2")
-
+    runtimeOnly("com.h2database:h2")
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+test {
+    useJUnitPlatform()
 }
 
 // dependencies::end[]
@@ -112,8 +116,8 @@ springBoot {
 }
 
 jar {
-    baseName = "${project.name}"
-    version = "${project.version}"
+    archiveFileName = "${project.name}"
+    archiveVersion = "${project.version}"
 }
 
 
