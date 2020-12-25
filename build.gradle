@@ -1,10 +1,14 @@
 /**
  * Gradle binary plugin
- * @see https://docs.gradle.org/current/userguide/plugins.html
+ * https://docs.gradle.org/current/userguide/plugins.html
  */
 plugins {
-    id "org.springframework.boot" version "2.2.0.RELEASE"
-    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    /**
+     * 2.4.0 부터 RELEASE 제거됨
+     * See https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.4-Release-Notes#versioning-scheme-change
+     */
+    id "org.springframework.boot" version "2.4.1"
+    id "io.spring.dependency-management" version "1.0.10.RELEASE"
     id "com.gorylenko.gradle-git-properties" version "2.2.0"
     id "java"
 }
@@ -22,7 +26,7 @@ apply plugin: "eclipse"
 apply plugin: "idea"
 apply plugin: "io.spring.dependency-management"
 
-version = "1.2.0.RELEASE"
+version = "2021.0"
 
 group = "io.honeymon.boot"
 version = "${jar.version}"
@@ -44,17 +48,17 @@ repositories {
 }
 
 configurations {
-    compile.exclude module: "tomcat-jdbc"
+    implementation.exclude module: "tomcat-jdbc"
 }
 
 /**
  * 스프링 부트에서 사용하는 의존성 라이브러리 버전을 관리하는 목적으로 사용한다.
  *
- * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#managing-dependencies-using-in-isolation
+ * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#managing-dependencies-using-in-isolation
  */
 dependencyManagement {
 //	dependencies {
-//		compile("org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE")
+//		implementation("org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE")
 //	}
 //
 //    imports {
@@ -65,32 +69,32 @@ dependencyManagement {
 /**
  * 다음과 같이 선언하면 spring-boot-starter-dependencies 에서 정의한 버전을 덮어쓴다.
  *
- * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#managing-dependencies-customizing
+ * See https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#managing-dependencies-customizing
  */
 ext["lombok.version"] = "1.18.10"
 
 dependencies {
-    compile("org.projectlombok:lombok")
+    implementation("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
 
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-configuration-processor")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("org.springframework.boot:spring-boot-starter-security")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
-    //compile("org.thymeleaf:thymeleaf-spring5")
-
-    compile("org.springframework.boot:spring-boot-starter-tomcat")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    /**
+     * Spring boot 2.3.0.RELEASE 부터 spring-boot-starter-web 에서 분리됨
+     * https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3-Release-Notes
+     */
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 
     //Java9 이상부터는 jaxb 의존성을 추가해야함
-    compile("javax.xml.bind:jaxb-api")
+    implementation("javax.xml.bind:jaxb-api")
 
-    compile("com.h2database:h2")
+    implementation("com.h2database:h2")
 
-
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 // dependencies::end[]
@@ -119,7 +123,7 @@ jar {
 
 bootJar {
     /**
-     * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring
+     * See https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring
      */
     manifest {
         attributes("Implementation-Title": "${project.name}",
@@ -128,13 +132,13 @@ bootJar {
 
     /**
      * 쉘스크립트처럼 실행가능한 바이너리 jar 만들기
-     * @see https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring-launch-script
+     * See https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring-launch-script
      */
     launchScript()
 }
 
 /**
- * @see https://github.com/n0mer/gradle-git-properties
+ * See https://github.com/n0mer/gradle-git-properties
  */
 gitProperties {
     dateFormat = "yyyy-MM-dd'T'HH:mmZ"
