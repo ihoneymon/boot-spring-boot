@@ -7,6 +7,7 @@ info:
 logging:
   level:
     io.honeymon.boot.springboot: DEBUG
+    org.springframework.web: TRACE
 server:
   port: 9000
 # ExampleProperties
@@ -35,6 +36,13 @@ management:
       show-details: never
     httptrace:
       enabled: true
+honeymon.api:
+  root-uri: http://honeymon.io/api
+  header-authorization: Berear 2019-11-01
+  read-timeout: 5s
+  connect-timeout: 10s
+  client-mode: rest
+
 ---
 spring:
   profiles: local
@@ -45,6 +53,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+honeymon.api:
+  client-mode: stub
+
 ---
 # test profile 사용시 적용
 spring:
@@ -57,7 +68,7 @@ spring:
     hibernate:
       ddl-auto: create-drop 
 server:
-  port: \${random.int[8000,9000]}
+  port: ${random.int[8000,9000]}
 
 ---
 # 개발서버 적용
@@ -72,7 +83,9 @@ spring:
       ddl-auto: validate
 server:
   port: 9000
-  
+honeymon.api:
+  client-mode: stub
+
 ---
 # 운영서버 적용
 spring:
