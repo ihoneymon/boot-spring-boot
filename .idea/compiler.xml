@@ -4,7 +4,9 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
+      <module name="boot-spring-boot.main" target="1.8" />
+      <module name="boot-spring-boot.test" target="1.8" />
       <module name="io.honeymon.boot.boot-spring-boot" target="1.8" />
     </bytecodeTargetLevel>
   </component>
