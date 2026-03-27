@@ -164,4 +164,5 @@ gradle-app.setting
 
 #app
 *.pid
-
+#Claude CLI
+.claude
