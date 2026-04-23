@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.1</version><!-- 2.4.0 부터 'RELEASE' 는 더이상 사용하지 않는다. -->
+		<version>2.4.13</version><!-- 2.4.0 부터 'RELEASE' 는 더이상 사용하지 않는다. -->
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -28,7 +28,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<lombok.version>1.18.16</lombok.version> <!-- see: https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#using-parent-pom -->
+		<lombok.version>1.18.16</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -100,6 +100,10 @@
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
+				<configuration>
+					<!-- worktree 지원: .git 파일이 가리키는 실제 git 디렉토리 자동탐색 -->
+					<useNativeGit>true</useNativeGit>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
