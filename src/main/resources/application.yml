@@ -45,7 +45,9 @@ honeymon.api:
 
 ---
 spring:
-  profiles: local
+  config:
+    activate:
+      on-profile: local
   datasource:
     url: jdbc:h2:~/.boot-spring-boot;DB_CLOSE_ON_EXIT=FALSE
     username: sa
@@ -59,7 +61,9 @@ honeymon.api:
 ---
 # test profile 사용시 적용
 spring:
-  profiles: test
+  config:
+    activate:
+      on-profile: test
   datasource:
     url: jdbc:h2:mem:test;DB_CLOSE_ON_EXIT=FALSE
     username: sa
@@ -73,7 +77,9 @@ server:
 ---
 # 개발서버 적용
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: dev
   datasource:
     url: jdbc:mariadb://<<url>>:3306/dev
     username: honeymon
@@ -89,7 +95,9 @@ honeymon.api:
 ---
 # 운영서버 적용
 spring:
-  profiles: prd
+  config:
+    activate:
+      on-profile: prd
   datasource:
     url: jdbc:mariadb://<<url>>:3306/prd
     username: honeymon
