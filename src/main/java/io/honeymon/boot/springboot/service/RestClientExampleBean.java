@@ -1,33 +1,32 @@
 package io.honeymon.boot.springboot.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestClient;
 
 import lombok.Data;
 
 @Service
 public class RestClientExampleBean {
 
-    private final RestTemplate restTemplate;
+    private final RestClient restClient;
 
-    @Autowired
-    public RestClientExampleBean(RestTemplateBuilder builder) {
-        this.restTemplate = builder.build();
+    public RestClientExampleBean() {
+        this.restClient = RestClient.create();
     }
 
     /**
      * 간단한 예제를 만들어보가 찾다보니 나온 사이트.
      * <a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder </a>
-     * @param id 
-     * 
+     * @param id
      * @return
      */
     public Post findOne(long id) {
-        return this.restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts/{id}", Post.class, id);
+        return this.restClient.get()
+            .uri("https://jsonplaceholder.typicode.com/posts/{id}", id)
+            .retrieve()
+            .body(Post.class);
     }
-    
+
     @Data
     public static class Post {
         private Long userId;
