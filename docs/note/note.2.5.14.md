@@ -1,5 +1,15 @@
 # Spring Boot 2.5.14 업그레이드 노트
 
+## 참고 링크
+
+| 구분 | 링크 |
+|------|------|
+| Release Notes | [Spring Boot 2.5 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes) |
+| Reference Docs | [Spring Boot 2.5.14 Reference](https://docs.spring.io/spring-boot/docs/2.5.14/reference/html/) |
+| API Docs | [Spring Boot 2.5.14 API](https://docs.spring.io/spring-boot/docs/2.5.14/api/) |
+| Migration Guide | [Spring Boot 2.5 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#deprecations-in-spring-boot-25) |
+| Spring Framework | [Spring Framework 5.3 What's New](https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-5.x#whats-new-in-version-53) |
+
 ## 변경 개요
 
 | 항목 | 이전 | 이후 |

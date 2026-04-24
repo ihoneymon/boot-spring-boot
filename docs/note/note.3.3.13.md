@@ -1,5 +1,17 @@
 # Spring Boot 3.3.13 업그레이드 노트
 
+## 참고 링크
+
+| 구분 | 링크 |
+|------|------|
+| Release Notes | [Spring Boot 3.3 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes) |
+| Reference Docs | [Spring Boot 3.3.13 Reference](https://docs.spring.io/spring-boot/docs/3.3.13/reference/html/) |
+| API Docs | [Spring Boot 3.3.13 API](https://docs.spring.io/spring-boot/docs/3.3.13/api/) |
+| Migration Guide | [Spring Boot 3.3 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Migration-Guide) |
+| Spring Framework | [Spring Framework 6.1 What's New](https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-6.x#whats-new-in-version-61) |
+| Structured Logging | [Structured Logging Reference](https://docs.spring.io/spring-boot/docs/3.3.13/reference/html/features.html#features.logging.structured) |
+| CDS | [CDS with Spring Boot](https://docs.spring.io/spring-boot/docs/3.3.13/reference/html/deployment.html#deployment.efficient.cds) |
+
 ## 변경 개요
 
 | 항목 | 이전 | 이후 |

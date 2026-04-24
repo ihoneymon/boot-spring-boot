@@ -1,5 +1,18 @@
 # Spring Boot 3.2.12 업그레이드 노트
 
+## 참고 링크
+
+| 구분 | 링크 |
+|------|------|
+| Release Notes | [Spring Boot 3.2 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes) |
+| Reference Docs | [Spring Boot 3.2.12 Reference](https://docs.spring.io/spring-boot/docs/3.2.12/reference/html/) |
+| API Docs | [Spring Boot 3.2.12 API](https://docs.spring.io/spring-boot/docs/3.2.12/api/) |
+| Migration Guide | [Spring Boot 3.2 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Migration-Guide) |
+| Spring Framework | [Spring Framework 6.1 What's New](https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-6.x#whats-new-in-version-61) |
+| RestClient | [RestClient Reference](https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-restclient) |
+| Virtual Threads | [Virtual Threads in Spring Boot](https://docs.spring.io/spring-boot/docs/3.2.12/reference/html/features.html#features.thread-virtual) |
+| JdbcClient | [JdbcClient Reference](https://docs.spring.io/spring-framework/reference/data-access/jdbc/simple.html#jdbc-JdbcClient) |
+
 ## 변경 개요
 
 | 항목 | 이전 | 이후 |

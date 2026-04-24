@@ -1,5 +1,17 @@
 # Spring Boot 3.1.12 업그레이드 노트
 
+## 참고 링크
+
+| 구분 | 링크 |
+|------|------|
+| Release Notes | [Spring Boot 3.1 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Release-Notes) |
+| Reference Docs | [Spring Boot 3.1.12 Reference](https://docs.spring.io/spring-boot/docs/3.1.12/reference/html/) |
+| API Docs | [Spring Boot 3.1.12 API](https://docs.spring.io/spring-boot/docs/3.1.12/api/) |
+| Migration Guide | [Spring Boot 3.1 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.1-Migration-Guide) |
+| Spring Framework | [Spring Framework 6.0 What's New](https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-6.x) |
+| Docker Compose | [Spring Boot Docker Compose Support](https://docs.spring.io/spring-boot/docs/3.1.12/reference/html/features.html#features.docker-compose) |
+| Testcontainers | [Spring Boot Testcontainers Support](https://docs.spring.io/spring-boot/docs/3.1.12/reference/html/features.html#features.testing.testcontainers) |
+
 ## 변경 개요
 
 | 항목 | 이전 | 이후 |
