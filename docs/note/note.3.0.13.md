@@ -1,5 +1,17 @@
 # Spring Boot 3.0.13 업그레이드 노트
 
+## 참고 링크
+
+| 구분 | 링크 |
+|------|------|
+| Release Notes | [Spring Boot 3.0 Release Notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Release-Notes) |
+| Reference Docs | [Spring Boot 3.0.13 Reference](https://docs.spring.io/spring-boot/docs/3.0.13/reference/html/) |
+| API Docs | [Spring Boot 3.0.13 API](https://docs.spring.io/spring-boot/docs/3.0.13/api/) |
+| Migration Guide | [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide) |
+| Spring Framework | [Spring Framework 6.0 What's New](https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-6.x) |
+| Spring Security | [Spring Security 6.0 Migration Guide](https://docs.spring.io/spring-security/reference/6.0/migration/index.html) |
+| Jakarta EE 9 | [Jakarta EE 9 Specification](https://jakarta.ee/release/9/) |
+
 ## 변경 개요
 
 | 항목 | 이전 | 이후 |
