@@ -7,7 +7,7 @@ plugins {
      * 2.4.0 부터 RELEASE 제거됨
      * See https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.4-Release-Notes#versioning-scheme-change
      */
-    id "org.springframework.boot" version "2.7.18"
+    id "org.springframework.boot" version "3.0.13"
     id "io.spring.dependency-management" version "1.0.10.RELEASE"
     id "com.gorylenko.gradle-git-properties" version "2.4.2"
     id "java"
@@ -65,12 +65,6 @@ dependencyManagement {
 //    }
 }
 
-/**
- * 다음과 같이 선언하면 spring-boot-starter-dependencies 에서 정의한 버전을 덮어쓴다.
- *
- * See https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html/#managing-dependencies-customizing
- */
-ext["h2.version"] = "1.4.199"
 
 dependencies {
     implementation("org.projectlombok:lombok")

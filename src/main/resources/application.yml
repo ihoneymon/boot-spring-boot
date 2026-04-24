@@ -34,7 +34,7 @@ management:
       enabled: true
     health:
       show-details: never
-    httptrace:
+    httpexchanges:
       enabled: true
 honeymon.api:
   root-uri: http://honeymon.io/api
