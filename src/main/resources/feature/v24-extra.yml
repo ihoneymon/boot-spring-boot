@@ -1,0 +1,13 @@
+# Spring Boot 2.4 신기능: spring.config.import 데모
+# 이 파일은 application.yml의 spring.config.import 에서 임포트된다.
+#
+# 사용 예시 (application.yml 에 추가):
+#   spring:
+#     config:
+#       import:
+#         - classpath:feature/v24-extra.yml
+#
+feature:
+  v24:
+    message: "Spring Boot 2.4 config import 데모"
+    enabled: true
