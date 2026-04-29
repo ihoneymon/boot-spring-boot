@@ -9,7 +9,7 @@ plugins {
      */
     id "org.springframework.boot" version "2.4.13"
     id "io.spring.dependency-management" version "1.0.10.RELEASE"
-    id "com.gorylenko.gradle-git-properties" version "2.2.0"
+    id "com.gorylenko.gradle-git-properties" version "2.4.2"
     id "java"
 }
 
@@ -29,7 +29,6 @@ apply plugin: "io.spring.dependency-management"
 version = "2021.0"
 
 group = "io.honeymon.boot"
-version = "${jar.version}"
 
 sourceCompatibility = 1.8
 
@@ -39,7 +38,7 @@ sourceCompatibility = 1.8
 // dependencies::start[]
 
 //exclude common-logging
-[configurations.runtime, configurations.default]*.exclude(module: "commons-logging")
+configurations.all { exclude module: "commons-logging" }
 
 repositories {
     mavenCentral()
