@@ -1,6 +1,5 @@
 package io.honeymon.boot.springboot.feature.v32;
 
-import org.springframework.boot.web.client.RestClientCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
@@ -83,14 +82,16 @@ public class SpringBoot32RestClientConfig {
 
     /**
      * RestClient 커스터마이징 예시.
-     * RestClient.Builder가 자동구성되므로 RestClientCustomizer 빈으로 전역 설정이 가능하다.
+     * Spring Boot 4.0에서 RestClientCustomizer가 제거되어,
+     * RestClient.Builder를 주입받아 직접 커스터마이징한 RestClient 빈을 등록한다.
      */
     @Bean
-    public RestClientCustomizer loggingRestClientCustomizer() {
-        return builder -> builder
+    public RestClient loggingRestClient(RestClient.Builder builder) {
+        return builder
                 .requestInterceptor((request, body, execution) -> {
                     // 요청 로깅 인터셉터 등록 예시
                     return execution.execute(request, body);
-                });
+                })
+                .build();
     }
 }

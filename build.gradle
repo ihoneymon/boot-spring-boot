@@ -132,11 +132,6 @@ bootJar {
                 "Implementation-Version": "${project.version}")
     }
 
-    /**
-     * 쉘스크립트처럼 실행가능한 바이너리 jar 만들기
-     * See https://docs.spring.io/spring-boot/docs/current/gradle-plugin/reference/html//#packaging-executable-configuring-launch-script
-     */
-    launchScript()
 }
 
 /**
