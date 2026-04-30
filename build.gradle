@@ -82,9 +82,6 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-tomcat")
 
-    //Java9 이상부터는 jaxb 의존성을 추가해야함
-    compileOnly("javax.xml.bind:jaxb-api")
-
     runtimeOnly("com.h2database:h2")
     /**
      * Spring boot 2.3.0.RELEASE 부터 spring-boot-starter-web 에서 분리됨
@@ -92,9 +89,6 @@ dependencies {
      */
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-
-    //Java9 이상부터는 jaxb 의존성을 추가해야함
-    implementation("javax.xml.bind:jaxb-api")
 
     implementation("com.h2database:h2")
 
@@ -116,7 +110,7 @@ springBoot {
      */
     buildInfo {
         properties {
-            additionalProperties = [
+            additional = [
                     "written-by": "honeymon"
             ]
         }
