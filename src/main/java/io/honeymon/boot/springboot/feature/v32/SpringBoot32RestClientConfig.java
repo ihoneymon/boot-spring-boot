@@ -82,12 +82,11 @@ public class SpringBoot32RestClientConfig {
 
     /**
      * RestClient 커스터마이징 예시.
-     * Spring Boot 4.0에서 RestClientCustomizer가 제거되어,
-     * RestClient.Builder를 주입받아 직접 커스터마이징한 RestClient 빈을 등록한다.
+     * Spring Boot 4에서는 전용 RestClientCustomizer 대신 Builder에 필요한 설정을 직접 적용한다.
      */
     @Bean
-    public RestClient loggingRestClient(RestClient.Builder builder) {
-        return builder
+    public RestClient loggingRestClient() {
+        return RestClient.builder()
                 .requestInterceptor((request, body, execution) -> {
                     // 요청 로깅 인터셉터 등록 예시
                     return execution.execute(request, body);
